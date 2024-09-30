@@ -29,9 +29,9 @@ jobs:
           ECR_REPOSITORY: webapp
         run: |
           # Build the web app image
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-          # Push the web app image with the latest tag
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:webapp-latest .
+          # Push the web app image with the webapp-latest tag
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:webapp-latest
 
       - name: Build and push MySQL image
         env:
@@ -39,6 +39,6 @@ jobs:
           ECR_REPOSITORY: dbapp
         run: |
           # Build the MySQL image
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f Dockerfile_mysql .
-          # Push the MySQL image with the latest tag
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:dbapp-latest -f Dockerfile_mysql .
+          # Push the MySQL image with the dbapp-latest tag
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:dbapp-latest
