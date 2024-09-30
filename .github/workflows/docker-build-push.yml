@@ -39,6 +39,6 @@ jobs:
           ECR_REPOSITORY: dbapp
         run: |
           # Build the MySQL image
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f mysql.sql .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f Dockerfile_mysql .
           # Push the MySQL image with the latest tag
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
